@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1020496535718",
+    "project_id": "vom-noticias-movil",
+    "storage_bucket": "vom-noticias-movil.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020496535718:android:0b01d881a021cf0958d467",
+        "android_client_info": {
+          "package_name": "com.example.vom_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbZYjmqZN81IYE7vQLWg8xBGwn5Gc2vgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020496535718:android:104053913d0c625758d467",
+        "android_client_info": {
+          "package_name": "com.vomnoticias.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbZYjmqZN81IYE7vQLWg8xBGwn5Gc2vgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

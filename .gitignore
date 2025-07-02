@@ -1,0 +1,48 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub-cache/
+.buildlog/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+
+# Build outputs
+/build/
+**/build/
+
+# iOS
+ios/Flutter/.last_build_id
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/Runner.xcodeproj/project.xcworkspace/
+ios/.symlinks/
+
+# Android
+android/.gradle/
+android/local.properties
+android/app/debug
+android/app/profile
+android/app/release
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json
+
+# MacOS
+.DS_Store
+
+# Others
+*.log
+*.class
+*.pyc
+*.swp
+app.*.symbols
+app.*.map.json
