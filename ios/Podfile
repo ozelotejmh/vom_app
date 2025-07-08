@@ -11,7 +11,12 @@ project 'Runner', {
 }
 
 def flutter_install_all_ios_pods(flutter_application_path)
-  eval(File.read(File.join(flutter_application_path, '.flutter-plugins-dependencies')), binding)
+  plugins_file = File.join(flutter_application_path, '.flutter-plugins-dependencies')
+  if File.exist?(plugins_file)
+    eval(File.read(plugins_file), binding)
+  else
+    puts "⚠️ Archivo .flutter-plugins-dependencies no encontrado, ejecuta 'flutter pub get' primero."
+  end
 end
 
 target 'Runner' do
