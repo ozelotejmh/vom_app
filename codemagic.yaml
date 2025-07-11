@@ -22,7 +22,7 @@ workflows:
           cd ios
           pod install
       - name: Build iOS debug
-        script: flutter build ios --debug
+        script: flutter build ios --debug --no-codesign
     artifacts:
       - build/ios/iphoneos/*.app
       - build/ios/**/*.dSYM
