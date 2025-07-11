@@ -1,4 +1,3 @@
-# Podfile generado manualmente
 platform :ios, '13.0'
 
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -9,18 +8,17 @@ project 'Runner', {
   'Release' => :release,
 }
 
-# ✅ Esta es la forma correcta de instalar los plugins Flutter
-install! 'cocoapods', :deterministic_uuids => false
-
 def flutter_install_all_ios_pods(flutter_application_path)
-  File.foreach(File.join(flutter_application_path, '..', '.flutter-plugins')) do |line|
-    plugin = line.split('=').first.strip
-    plugin_path = line.split('=').last.strip
-    pod plugin, :path => File.join(plugin_path, 'ios')
+  plugins_file = File.join(flutter_application_path, '.flutter-plugins')
+  deps_file = File.join(flutter_application_path, '.flutter-plugins-dependencies')
+
+  if File.exist?(deps_file)
+    eval(File.read(deps_file), binding)
+  else
+    puts "⚠️ Archivo .flutter-plugins-dependencies no encontrado, ejecuta 'flutter pub get' primero."
   end
 end
 
 target 'Runner' do
-  flutter_application_path = File.expand_path('..', __dir__)
-  flutter_install_all_ios_pods(flutter_application_path)
+  flutter_install_all_ios_pods(File.dirname(File.realpath(__FILE__)))
 end
