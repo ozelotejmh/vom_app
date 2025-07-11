@@ -12,17 +12,16 @@ workflows:
     scripts:
       - name: Flutter clean
         script: flutter clean
-      - name: Get dependencies
+      - name: Get Flutter dependencies
         script: flutter pub get
-      - name: Set iOS minimum version to 13
-        script: |
-          sed -i '' 's/platform :ios, .*/platform :ios, '13.0'/' ios/Podfile
+      - name: Set iOS minimum version
+        script: sed -i '' 's/platform :ios, .*/platform :ios, '\''13.0'\''/' ios/Podfile
       - name: Install CocoaPods dependencies
         script: |
           cd ios
           pod install
       - name: Build iOS debug
-        script: flutter build ios --debug --no-codesign
+        script: flutter build ios --debug
     artifacts:
       - build/ios/iphoneos/*.app
       - build/ios/**/*.dSYM
