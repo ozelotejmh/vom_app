@@ -20,8 +20,8 @@ workflows:
         script: |
           cd ios
           pod install
-      - name: Build iOS debug
-        script: flutter build ios --debug
+      - name: Build iOS debug for simulator
+        script: flutter build ios --debug --simulator
     artifacts:
       - build/ios/iphoneos/*.app
       - build/ios/**/*.dSYM
