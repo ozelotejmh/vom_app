@@ -13,7 +13,7 @@ project 'Runner', {
 install! 'cocoapods', :deterministic_uuids => false
 
 def flutter_install_all_ios_pods(flutter_application_path)
-  File.foreach(File.join(flutter_application_path, '.flutter-plugins')) do |line|
+  File.foreach(File.join(flutter_application_path, '..', '.flutter-plugins')) do |line|
     plugin = line.split('=').first.strip
     plugin_path = line.split('=').last.strip
     pod plugin, :path => File.join(plugin_path, 'ios')
