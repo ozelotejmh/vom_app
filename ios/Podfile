@@ -1,7 +1,6 @@
 # Podfile generado manualmente
 platform :ios, '13.0'
 
-# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
 project 'Runner', {
@@ -10,15 +9,18 @@ project 'Runner', {
   'Release' => :release,
 }
 
+# ✅ Esta es la forma correcta de instalar los plugins Flutter
+install! 'cocoapods', :deterministic_uuids => false
+
 def flutter_install_all_ios_pods(flutter_application_path)
-  plugins_file = File.join(flutter_application_path, '../.flutter-plugins-dependencies')
-  if File.exist?(plugins_file)
-    eval(File.read(plugins_file), binding)
-  else
-    puts "⚠️ Archivo .flutter-plugins-dependencies no encontrado, ejecuta 'flutter pub get' primero."
+  File.foreach(File.join(flutter_application_path, '.flutter-plugins')) do |line|
+    plugin = line.split('=').first.strip
+    plugin_path = line.split('=').last.strip
+    pod plugin, :path => File.join(plugin_path, 'ios')
   end
 end
 
 target 'Runner' do
-  flutter_install_all_ios_pods(File.dirname(File.realpath(__FILE__)))
+  flutter_application_path = File.expand_path('..', __dir__)
+  flutter_install_all_ios_pods(flutter_application_path)
 end
